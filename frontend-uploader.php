@@ -466,13 +466,8 @@ class Frontend_Uploader {
 		if ( !empty( $result['errors'] ) ) {
 			$query_args['response'] = 'fu-error';
 			$_errors = array();
-			var_dump( $result['errors'] ); exit;
 			// Iterate through key=>value pairs of errors
 			foreach ( $result['errors'] as $key => $error ) {
-
-				// Do not display mime-types in production
-				if ( !$this->is_debug && isset( $error[0]['mime'] ) )
-					unset( $error[0]['mime'] );
 				if ( isset( $error[0] ) )
 					$_errors[$key] = join( ',,,', (array) $error[0] );
 			}
