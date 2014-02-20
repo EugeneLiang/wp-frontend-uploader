@@ -460,13 +460,13 @@ class Frontend_Uploader {
 				$query_args['response'] = 'fu-sent';
 		}
 
-
+		//$result['errors'] = array( 'mime' => 'sick' );
 		// Some errors happened
 		// Format a string to be passed as GET value
 		if ( !empty( $result['errors'] ) ) {
 			$query_args['response'] = 'fu-error';
 			$_errors = array();
-
+			var_dump( $result['errors'] ); exit;
 			// Iterate through key=>value pairs of errors
 			foreach ( $result['errors'] as $key => $error ) {
 
